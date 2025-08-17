@@ -4,6 +4,7 @@ int main() {
     int bispo = 1;
     int torre = 1;
     int rainha = 1;
+    int cavalo = 1;
 
     // Torre com FOR
     printf("Movimento da Torre:\n");
@@ -25,5 +26,20 @@ int main() {
         rainha++;
     } while (rainha <= 8);
 
+    // Cavalo com loop de repetição 
+   printf("\nMovimento do Cavalo:\n");
+
+for (int i = 1; i <= 2; i++) {   // FOR 
+    printf("Baixo\n");
+
+    if (i == 2) {  
+        int j = 1;
+        while (j <= 1) {   // WHILE 
+            printf("Esquerda\n");
+            j++;
+        }
+    }
+}
     return 0;
+
 }
