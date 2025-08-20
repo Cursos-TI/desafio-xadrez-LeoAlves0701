@@ -1,45 +1,61 @@
 #include <stdio.h>
 
-int main() {
-    int bispo = 1;
-    int torre = 1;
-    int rainha = 1;
-    int cavalo = 1;
+// Torre (recursivo)
+void moverTorre(int passos) {
+    if (passos == 0) return;
+    printf("Direita\n");
+    moverTorre(passos - 1);
+}
 
-    // Torre com FOR
-    printf("Movimento da Torre:\n");
-    for (torre = 1; torre <= 5; torre++) {
-        printf("Direita\n");
+// Bispo (recursivo + loops aninhados)
+void moverBispo(int passos) {
+    if (passos == 0) return;
+    for (int v = 1; v <= 1; v++) {
+        for (int h = 1; h <= 1; h++) {
+            printf("Cima Direita\n");
+        }
     }
+    moverBispo(passos - 1);
+}
 
-    // Bispo com WHILE
-    printf("\nMovimento do Bispo:\n");
-    while (bispo <= 5) {
-        printf("Cima Direita\n");
-        bispo++;
-    }
+// Rainha (recursivo)
+void moverRainha(int passos) {
+    if (passos == 0) return;
+    printf("Esquerda\n");
+    moverRainha(passos - 1);
+}
 
-    // Rainha com DO-WHILE
-    printf("\nMovimento da Rainha:\n");
-    do {
-        printf("Esquerda\n");
-        rainha++;
-    } while (rainha <= 8);
-
-    // Cavalo com loop de repetição 
-   printf("\nMovimento do Cavalo:\n");
-
-for (int i = 1; i <= 2; i++) {   // FOR 
-    printf("Baixo\n");
-
-    if (i == 2) {  
-        int j = 1;
-        while (j <= 1) {   // WHILE 
-            printf("Esquerda\n");
-            j++;
+// Cavalo (loops complexos)
+void moverCavalo() {
+    printf("Movimento do Cavalo:\n");
+    for (int i = 1, j = 0; i <= 3; i++, j++) {
+        if (i <= 2) {
+            printf("Cima\n");
+            continue;
+        }
+        if (i == 3) {
+            printf("Direita\n");
+            break;
         }
     }
 }
-    return 0;
 
+int main() {
+    int casasTorre = 5;
+    int casasBispo = 5;
+    int casasRainha = 8;
+
+    printf("Movimento da Torre:\n");
+    moverTorre(casasTorre);
+
+    printf("\nMovimento do Bispo:\n");
+    moverBispo(casasBispo);
+
+    printf("\nMovimento da Rainha:\n");
+    moverRainha(casasRainha);
+
+    printf("\n");
+    moverCavalo();
+
+    return 0;
 }
